@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import sliderSettings from "../Animations/silder";
+import sliderSettings from "../Animations/slider";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../../css/styles/slider.css";
@@ -45,7 +45,7 @@ const HotCollections = () => {
                   {loading ? (
                     <div className="skeleton-box" />
                   ) : (
-                    <Link to={`/item-detail${item.nftId}`}>
+                    <Link to={`/item-detail/${item.nftId}`}>
                       <img
                         src={item.nftImage}
                         className="lazy img-fluid"
@@ -57,7 +57,7 @@ const HotCollections = () => {
 
                 <div className="nft_coll_pp">
                   {loading ? (
-                    <div className="skeleton-avatar" />
+                    <div className="skeleton skeleton-avatar" />
                   ) : (
                     <Link to={`/author/${item.authorId}`}>
                       <img
@@ -73,12 +73,12 @@ const HotCollections = () => {
                 <div className="nft_coll_info">
                   {loading ? (
                     <>
-                      <div className="skeleton-line long" />
-                      <div className="skeleton-line short" />
+                      <div className="skeleton skeleton-line long" />
+                      <div className="skeleton skeleton-line short" />
                     </>
                   ) : (
                     <>
-                      <Link to={`/explore/${item.id}`}>
+                      <Link to={`/explore/${item.authorId}`}>
                         <h4>{item.title}</h4>
                       </Link>
                       <span>ERC-{item.code}</span>
