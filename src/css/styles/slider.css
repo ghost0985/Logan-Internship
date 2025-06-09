@@ -1,0 +1,50 @@
+
+.custom-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.custom-arrow:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.custom-arrow.prev {
+  left: -15px; 
+}
+
+.custom-arrow.next {
+  right: -15px; 
+}
+
+.custom-arrow i {
+  font-size: 16px;
+  color: #333;
+}
+
+.slick-slide {
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .slick-slide {
+    padding: 0 5px;
+  }
+}
+
+
+
+
