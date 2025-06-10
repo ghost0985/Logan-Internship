@@ -7,6 +7,7 @@ import Slider from "react-slick";
 import sliderSettings from "../Animations/slider";
 import "../../css/styles/skeleton.css";
 import Countdown from "../Animations/Countdown";
+import DisplaycardSkeleton from "../Animations/DisplaycardSkeleton";
 
 const NewItems = () => {
   const [collections, setNewDataCollections] = useState([]);
@@ -41,16 +42,14 @@ const NewItems = () => {
         <Slider {...sliderSettings}>
           {(loading ? Array(4).fill({}) : collections).map((item, index) => (
             <div key={index}>
-              <div className="nft__item">
-                <div className="author_list_pp">
-                  {loading ? (
-                    <div className="skeleton skeleton-author" />
-                  ) : (
+              {loading ? (
+                <DisplaycardSkeleton />
+              ) : (
+                <div className="nft__item">
+                  <div className="author_list_pp">
                     <Link
                       to={`/author/${item.authorId}`}
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="top"
-                      title="Creator: Monica Lucas"
+                      title={`Creator: ${item.authorName}`}
                     >
                       <img
                         className="lazy"
@@ -59,35 +58,21 @@ const NewItems = () => {
                       />
                       <i className="fa fa-check"></i>
                     </Link>
-                  )}
-                </div>
-
-                {loading ? (
-                  <div className="de_countdown">
-                    <div className="skeleton skeleton-countdown" />
                   </div>
-                ) : (
-                  item.expiryDate && (
+
+                  {item.expiryDate && (
                     <div className="de_countdown">
                       <Countdown expiryDate={item.expiryDate} />
                     </div>
-                  )
-                )}
+                  )}
 
-                <div className="nft__item_wrap">
-                  <div className="nft__item_extra">
-                    <div className="nft__item_buttons">
-                      {loading ? (
-                        <div className="skeleton skeleton-button" />
-                      ) : (
+                  <div className="nft__item_wrap">
+                    <div className="nft__item_extra">
+                      <div className="nft__item_buttons">
                         <button>Buy Now</button>
-                      )}
+                      </div>
                     </div>
-                  </div>
 
-                  {loading ? (
-                    <div className="skeleton skeleton-image" />
-                  ) : (
                     <Link to={`/item-detail/${item.nftId}`}>
                       <img
                         src={item.nftImage}
@@ -95,34 +80,22 @@ const NewItems = () => {
                         alt=""
                       />
                     </Link>
-                  )}
-                </div>
+                  </div>
 
-                <div className="nft__item_info">
-                  {loading ? (
-                    <>
-                      <div className="skeleton skeleton-title" />
-                      <div className="skeleton skeleton-price" />
-                      <div className="skeleton-likes-wrapper">
-                        <div className="skeleton skeleton-likes" />
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      <Link to={`/item-detail/${item.nftId}`}>
-                        <h4>{item.title}</h4>
-                      </Link>
-                      <div className="nft__item_price">
-                        {item.price ? `${item.price} ETH` : "--"}
-                      </div>
-                      <div className="nft__item_like">
-                        <i className="fa fa-heart"></i>
-                        <span>{item.likes || 0}</span>
-                      </div>
-                    </>
-                  )}
+                  <div className="nft__item_info">
+                    <Link to={`/item-detail/${item.nftId}`}>
+                      <h4>{item.title}</h4>
+                    </Link>
+                    <div className="nft__item_price">
+                      {item.price ? `${item.price} ETH` : "--"}
+                    </div>
+                    <div className="nft__item_like">
+                      <i className="fa fa-heart"></i>
+                      <span>{item.likes || 0}</span>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           ))}
         </Slider>
