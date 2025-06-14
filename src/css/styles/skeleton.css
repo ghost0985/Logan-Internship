@@ -146,3 +146,56 @@
   height: 20px;
   border-radius: 8px;
 }
+
+/* Author Page Skeleton */
+
+.author-skeleton__avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.profile_name{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+
+.author-skeleton__name-line {
+  width: 160px;
+  height: 20px;
+  margin: 10px 0 15px;
+  border-radius: 6px;
+}
+
+.author-skeleton__username-line {
+  width: 100px;
+  height: 16px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+}
+
+.author-skeleton__wallet-line {
+  width: 200px;
+  height: 14px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+}
+
+.author-skeleton__follow {
+  width: 80px;
+  height: 20px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+.author-skeleton__btn {
+  width: 100px;
+  height: 50px;
+  border-radius: 8px;
+  margin-left: 20px;
+}
+
+
