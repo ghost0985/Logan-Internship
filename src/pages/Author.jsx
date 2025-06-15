@@ -4,6 +4,8 @@ import AuthorImage from "../images/author_thumbnail.jpg";
 import AuthorBanner from "../images/author_banner.jpg";
 import AuthorItems from "../components/author/AuthorItems";
 import AuthorSkeleton from "../components/Animations/AuthorSkeleton";
+import axios from "axios";
+
 
 const Author = () => {
   const { id } = useParams();
@@ -15,12 +17,12 @@ const Author = () => {
   useEffect(() => {
     async function fetchAuthor() {
       try {
-        const res = await fetch(
+        const res = await axios.get(
           `https://us-central1-nft-cloud-functions.cloudfunctions.net/authors?author=${id}`
         );
-        const data = await res.json();
+        const data = await res.data;
         setAuthor(data);
-        setFollowerCount(data.followers);
+        setFollowerCount(res.data.followers);
       } catch (error) {
         console.error("Error fetching author", error);
       } finally {
