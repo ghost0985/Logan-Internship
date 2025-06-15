@@ -40,7 +40,12 @@ const HotCollections = () => {
         <Slider {...sliderSettings}>
           {(loading ? Array(4).fill({}) : collections).map((item, index) => (
             <div key={index}>
-              <div className="nft_coll">
+              <div
+                className="nft_coll"
+                data-aos="fade-in"
+                data-aos-duration="800"
+                data-aos-easing="ease-in-out"
+              >
                 <div className="nft_wrap">
                   {loading ? (
                     <div className="skeleton-box" />

@@ -45,7 +45,12 @@ const NewItems = () => {
               {loading ? (
                 <DisplaycardSkeleton />
               ) : (
-                <div className="nft__item">
+                <div
+                  className="nft__item"
+                  data-aos="fade-in"
+                  data-aos-duration="800"
+                  data-aos-easing="ease-in-out"
+                >
                   <div className="author_list_pp">
                     <Link
                       to={`/author/${item.authorId}`}
